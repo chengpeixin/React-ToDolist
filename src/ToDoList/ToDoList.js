@@ -22,8 +22,10 @@ class ToDoList extends Component{
                     {
                         this.state.list.map((item,index)=>{
                             return (
-                                <li key={index} onClick={this.handleItemDeleteClick.bind(this,index)}>
+                                <li key={index}>
                                     {item}
+                                    <button onClick={this.handleItemDeleteClick.bind(this,index)}>删除</button>
+                                    <button onClick={this.handleItemUpdateClick.bind(this,index)}>修改</button>
                                 </li>
                             )
                         })
@@ -50,6 +52,9 @@ class ToDoList extends Component{
         this.setState({
             list:list
         })
+    }
+    handleItemUpdateClick(index){
+        const list = [...this.state.list]
         console.log(index)
     }
 }
