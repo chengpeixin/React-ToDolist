@@ -3,6 +3,7 @@ import React, {
     Fragment
 } from 'react'
 
+import TodoItem from './TodoItem'
 
 class ToDoList extends Component{
     constructor(props){
@@ -16,17 +17,14 @@ class ToDoList extends Component{
         return (
             <Fragment>
                 <div>
-                    <input value={this.state.inputValue} onChange={this.handleInputChange.bind(this)} /><button onClick={this.handleBtnClick.bind(this)}>提交</button>
+                    <label htmlFor="input">输入内容</label>
+                    <input id="input" value={this.state.inputValue} onChange={this.handleInputChange.bind(this)} /><button onClick={this.handleBtnClick.bind(this)}>提交</button>
                 </div>
                 <ul>
                     {
                         this.state.list.map((item,index)=>{
                             return (
-                                <li key={index}>
-                                    {item}
-                                    <button onClick={this.handleItemDeleteClick.bind(this,index)}>删除</button>
-                                    <button onClick={this.handleItemUpdateClick.bind(this,index)}>修改</button>
-                                </li>
+                                <TodoItem item={item} index={index} deleteItem={this.handleItemDeleteClick.bind(this)}/>
                             )
                         })
                     }
