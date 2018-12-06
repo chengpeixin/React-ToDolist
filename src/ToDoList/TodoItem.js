@@ -3,6 +3,7 @@ import React, {
     Fragment
 } from 'react'
 
+import PropTypes from 'prop-types';
 
 class TodoItem extends Component{
     constructor(props){
@@ -10,16 +11,22 @@ class TodoItem extends Component{
         this.handleRemoveClick = this.handleRemoveClick.bind(this);
     }
     render(){
+        const {item} = this.props;
         return (
             <div>
-                <span>{this.props.item}</span>
+                <span>{item}</span>
                 <button onClick={this.handleRemoveClick}>删除</button>
             </div>
         )
     }
     handleRemoveClick(){
-        this.props.deleteItem(this.props.index)
+        const {index} = this.props;
+        this.props.deleteItem(index)
     }
 }
 
+TodoItem.propTypes = {
+    index:PropTypes.number,
+    item:PropTypes.string
+}
 export default TodoItem;
