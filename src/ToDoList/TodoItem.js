@@ -19,6 +19,16 @@ class TodoItem extends Component{
             </div>
         )
     }
+    // 从父组件接受了参数
+    // 第一次存在于父组件,不执行
+    // 存在后才执行
+    componentWillReceiveProps(){
+        console.log('child componentWillReceiveProps')
+    }
+    // 组件在页面中剔除后执行
+    componentWillUnmount(){
+        console.log('componentWillUnmount')
+    }
     handleRemoveClick(){
         const {index} = this.props;
         this.props.deleteItem(index)

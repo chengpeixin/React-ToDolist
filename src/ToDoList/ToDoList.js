@@ -18,6 +18,7 @@ class ToDoList extends Component{
         this.handleItemDeleteClick = this.handleItemDeleteClick.bind(this);
     }
     render (){
+        console.log('render')
         return (
             <Fragment>
                 <div>
@@ -29,6 +30,35 @@ class ToDoList extends Component{
                 </ul>
             </Fragment>
         )
+    }
+    // 组件挂载之前执行
+    componentWillMount(){
+        console.log('componentWillMount')
+    }
+    // 组件挂载之后执行
+    componentDidMount(){
+        console.log('componentDidMount')
+    }
+    // 组件更新之前，返回结果true||false
+    shouldComponentUpdate(){
+        console.log('shouldComponentUpdate')
+        return true;
+    }
+
+    // shouldComponentUpdate 之后执行，shouldComponentUpdate 返回false则不执行组件更新之前
+    componentWillUpdate(){
+        console.log('componentWillUpdate')
+    }
+    // 组件更新后
+    componentDidUpdate(){
+        console.log('componentDidUpdate')
+    }
+    componentWillReceiveProps(){
+        console.log('componentWillReceiveProps')
+    }
+    // 组件在页面中剔除后执行
+    componentWillUnmount(){
+        console.log('componentWillUnmount')
     }
 
     handleInputChange(e){
